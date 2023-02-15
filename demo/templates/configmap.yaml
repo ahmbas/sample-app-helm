@@ -5,4 +5,4 @@ metadata:
   labels:
     {{- include "demo.labels" . | nindent 4 }}
 data:
-  my-app-config: "abc"
+  my-app-config: "xyz"
