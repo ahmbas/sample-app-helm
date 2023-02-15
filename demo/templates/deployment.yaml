@@ -31,13 +31,16 @@ spec:
       - configMap:
           defaultMode: 420
           name: test-demo
+          items:
+          - key: my-app-config
+            path: item-path
         name: testtxt
       containers:
         - name: {{ .Chart.Name }}
           volumeMounts:
           - mountPath: /etc/test.txt
             name: testtxt
-            subPath: test.txt
+            subPath: item-path
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
