@@ -27,8 +27,20 @@ spec:
       serviceAccountName: {{ include "demo.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: my-app-config
+            path: my-app-config
+          name: test-demo
+        name: testtxt
       containers:
         - name: {{ .Chart.Name }}
+          volumeMounts:
+          - mountPath: /etc/test.txt
+            name: testtxt
+            subPath: test.txt
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
