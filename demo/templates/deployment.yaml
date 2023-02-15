@@ -30,9 +30,6 @@ spec:
       volumes:
       - configMap:
           defaultMode: 420
-          items:
-          - key: my-app-config
-            path: my-app-config
           name: test-demo
         name: testtxt
       containers:
