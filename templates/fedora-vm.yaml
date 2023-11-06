@@ -3,6 +3,7 @@ kind: VirtualMachine
 metadata:
   labels:
     app: fedora-available-snipe
+    groupware: fedora-cluster
     vm.kubevirt.io/template: fedora-server-small
     vm.kubevirt.io/template.namespace: openshift
     vm.kubevirt.io/template.revision: '1'
