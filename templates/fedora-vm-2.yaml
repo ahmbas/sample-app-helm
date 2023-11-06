@@ -35,6 +35,7 @@ spec:
       labels:
         kubevirt.io/domain: fedora-available-turtle
         kubevirt.io/size: small
+        groupware: fedora-cluster
     spec:
       domain:
         cpu:
