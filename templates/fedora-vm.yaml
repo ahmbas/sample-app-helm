@@ -83,4 +83,8 @@ spec:
               user: fedora
               password: fedora
               chpasswd: { expire: False }
+              runcmd:
+              - yum install -y httpd
+              - systemctl enable --now httpd
+              - echo "I am $(hostname)" > /var/www/html/index.html
           name: cloudinitdisk
